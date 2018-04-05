@@ -5,16 +5,14 @@
 
 # Pwush
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pwush.rb`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Pwush is a remote api client for [Pushwoosh](https://www.pushwoosh.com/v1.0/reference)
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'pwush'
+gem 'pwush', '~> 0.1.0'
 ```
 
 And then execute:
@@ -25,15 +23,37 @@ Or install it yourself as:
 
     $ gem install pwush
 
-## Usage
+## Basic Usage
 
-TODO: Write usage instructions here
+### Setup pwush client
+```ruby
+MyPW = Pwush.new(auth: 'AUTH_KEY', app: 'APP_CODE')
+```
+### Push message
+```ruby
+first_message = Pwush::Message.new(
+  content: { en: 'Hello' },
+  send_date: '2018-04-06 23:00',
+  timezone: 'Europe/London',
+  devices: ['token1', 'token2'],
+  ios_title: 'This is the test message',
+  ios_subtitle: 'subtitle!'
+)
 
-## Development
+second_message = Pwush::Message.new(
+  content: { es: 'Hola' },
+  send_date: '2018-04-06 23:00',
+  timezone: 'Europe/Madrid',
+  devices: ['token3', 'token4'],
+  android_banner: 'This is the test message',
+  android_gcm_ttl: 3600
+)
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+MyPW.push(first_message, second_message)
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+### Result
+The result is `dry-monads` Success or Failure, [read about it](http://dry-rb.org/gems/dry-monads/result/)
 
 ## Contributing
 
