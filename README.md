@@ -5,7 +5,7 @@
 
 # Pwush
 
-Pwush is a remote api client for [Pushwoosh](https://www.pushwoosh.com/v1.0/reference)
+Pwush is a remote api toolkit for [Pushwoosh](https://www.pushwoosh.com/v1.0/reference)
 
 ## Installation
 
