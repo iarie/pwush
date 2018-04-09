@@ -11,7 +11,7 @@ module Pwush
 
     # "timezone":"America/New_York", optional, if ignored UTC-0 is default in "send_date".
     # See http://php.net/manual/timezones.php for supported timezones
-    attribute :timezone, Types::Strict::String.optional.default('UTC-0')
+    attribute :timezone, Types::Strict::String.optional.default(nil)
 
     # "campaign":"CAMPAIGN_CODE", optional.
     # Campaign code to which you want to assign this push message
@@ -43,7 +43,7 @@ module Pwush
 
     # "minimize_link": 0, optional.
     # False or 0 - do not minimize, 1 - Google, 2 - bitly. Default = 1
-    attribute :minimize_link, Types::Strict::Int.default(1).constrained(included_in: 0..2)
+    attribute :minimize_link, Types::Strict::Int.constrained(included_in: 0..2).optional.default(nil)
 
     # "data": {"key":"value"}, JSON string or JSON object,
     # will be passed as "u" parameter in the payload (converted to JSON string)

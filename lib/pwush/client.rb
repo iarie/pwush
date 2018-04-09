@@ -35,10 +35,6 @@ module Pwush
       post(:getPreset, preset_code: preset_code)
     end
 
-    def fail
-      post(:someshit, shit: 'crap')
-    end
-
     private
 
     def get(action, payload = nil)
