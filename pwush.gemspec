@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'pwush'
   spec.version       = Pwush::VERSION
   spec.authors       = ['Yaroslav Litvinov']
-  spec.email         = ['litvinov@applicot.ru']
+  spec.email         = ['beyondthemkad@gmail.com']
 
   spec.summary       = 'Pushwoosh remote API ruby toolkit'
   spec.description   = spec.summary
