@@ -14,7 +14,7 @@ RSpec.describe Pwush::Client do
       'Connection' => 'close',
       'Content-Type' => 'application/json; charset=UTF-8',
       'Host' => 'cp.pushwoosh.com',
-      'User-Agent' => 'http.rb/3.0.0'
+      'User-Agent' => 'http.rb/3.3.0'
     }
   }
 
