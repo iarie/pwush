@@ -7,7 +7,7 @@ module Pwush
     end
 
     def create_message(*messages)
-      post(:createMessage, notifications: messages)
+      post(:createMessage, notifications: messages.flatten)
     end
     alias push create_message
 
