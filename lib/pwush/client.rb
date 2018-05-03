@@ -50,7 +50,14 @@ module Pwush
     end
 
     def raw_request(verb, action, payload)
-      Http.request(verb, url(action), json: build_request(payload).body)
+      request = build_request(payload)
+      url     = url(action)
+
+      @config.logger.info(
+        "Pushwoosh #{verb.upcase} #{url} BODY #{request.body.to_json}"
+      )
+
+      Http.request(verb, url, json: request.body)
     end
 
     def build_request(payload = nil)

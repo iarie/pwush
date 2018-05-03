@@ -1,3 +1,5 @@
+require 'logger'
+
 module Pwush
   MissingAuthToken = Class.new(StandardError)
   MissingAppToken = Class.new(StandardError)
@@ -6,12 +8,13 @@ module Pwush
     URL = 'https://cp.pushwoosh.com/json/1.3'.freeze
 
     def initialize(options = {})
-      @url  = options[:url]  || URL
-      @auth = options[:auth] || auth_missing
-      @app  = options[:app]  || app_missing
+      @url    = options[:url]    || URL
+      @auth   = options[:auth]   || auth_missing
+      @app    = options[:app]    || app_missing
+      @logger = options[:logger] || Logger.new(STDOUT)
     end
 
-    attr_accessor :auth, :url, :app
+    attr_accessor :auth, :url, :app, :logger
 
     private
 
