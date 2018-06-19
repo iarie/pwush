@@ -57,7 +57,7 @@ module Pwush
         "Pushwoosh #{verb.upcase} #{url} BODY #{request.body.to_json}"
       )
 
-      Http.request(verb, url, json: request.body)
+      Http.timeout(@config.timeout).request(verb, url, json: request.body)
     end
 
     def build_request(payload = nil)

@@ -17,17 +17,17 @@ gem 'pwush', '~> 0.1.0'
 
 And then execute:
 
-    $ bundle
+	$ bundle
 
 Or install it yourself as:
 
-    $ gem install pwush
+	$ gem install pwush
 
 ## Basic Usage
 
 ### Setup pwush client
 ```ruby
-MyPW = Pwush.new(auth: 'AUTH_KEY', app: 'APP_CODE')
+MyPW = Pwush.new(auth: 'AUTH_KEY', app: 'APP_CODE', timeout: { connect: 5, read: 10, write: 2 })
 ```
 ### Push message
 ```ruby

@@ -8,13 +8,14 @@ module Pwush
     URL = 'https://cp.pushwoosh.com/json/1.3'.freeze
 
     def initialize(options = {})
-      @url    = options[:url]    || URL
-      @auth   = options[:auth]   || auth_missing
-      @app    = options[:app]    || app_missing
-      @logger = options[:logger] || Logger.new(STDOUT)
+      @url     = options[:url]     || URL
+      @auth    = options[:auth]    || auth_missing
+      @app     = options[:app]     || app_missing
+      @timeout = options[:timeout] || { write: 2, connect: 5, read: 10 }
+      @logger  = options[:logger]  || Logger.new(STDOUT)
     end
 
-    attr_accessor :auth, :url, :app, :logger
+    attr_accessor :auth, :url, :app, :timeout, :logger
 
     private
 
