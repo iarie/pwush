@@ -1,11 +1,9 @@
 module Pwush
   module Response
     class Value < Dry::Struct::Value
-      constructor_type :strict
-
-      attribute :status_code, Types::Coercible::Int
-      attribute :status_message, Types::Strict::String.optional
-      attribute :body, (Types::Hash | Types::String).optional
+      attribute :status_code, Types::Coercible::Integer
+      attribute :status_message, Types::Strict::String.meta(omittable: true)
+      attribute :body, (Types::Hash | Types::String).meta(omittable: true)
     end
   end
 end

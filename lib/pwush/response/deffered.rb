@@ -1,6 +1,8 @@
 module Pwush
   module Response
     class Deffered
+      include Dry::Monads::Result::Mixin
+
       def initialize(raw_result)
         @_raw_result = raw_result
       end
