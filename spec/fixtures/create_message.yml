@@ -3,14 +3,14 @@
 in:
   request:
     notifications:
-    - send_date: 2018-04-20 13:35
+    - content:
+        en: Hello
+        es: Hola
+        ru: Zdarova
+      send_date: 2018-04-20 13:35
       ignore_user_timezone: true
       timezone: Europe/Moscow
       campaign: Specs
-      content:
-          en: Hello
-          es: Hola
-          ru: Zdarova
       page_id: 1
       rich_page_id: 42
       rich_media: XXXX-XXXX
