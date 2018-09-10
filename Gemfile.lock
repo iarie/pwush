@@ -3,8 +3,8 @@ PATH
   specs:
     pwush (0.1.4)
       dry-monads (~> 1.0)
-      dry-struct (~> 0.5)
-      dry-types (~> 0.13)
+      dry-struct (<= 0.5.1)
+      dry-types (<= 0.13.2)
       http (~> 3.0)
       oj (~> 3)
 

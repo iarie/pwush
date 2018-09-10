@@ -21,8 +21,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'dry-monads', '~> 1.0'
-  spec.add_dependency 'dry-struct', '~> 0.5 '
-  spec.add_dependency 'dry-types', '~> 0.13'
+  spec.add_dependency 'dry-struct', '<= 0.5.1 '
+  spec.add_dependency 'dry-types', '<= 0.13.2'
   spec.add_dependency 'http', '~> 3.0'
   spec.add_dependency 'oj', '~> 3'
 
