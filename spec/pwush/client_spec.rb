@@ -188,6 +188,17 @@ RSpec.describe Pwush::Client do
           body: { 'Messages' => [] }
         )
       end
+
+      it 'handles default http timeout' do
+        stub_request(:post, action_url)
+          .with(headers: headers, body: request_body)
+          .to_timeout
+
+        response = client.push(message)
+
+        expect(response).to be_failure
+        expect(response.failure).to be_a(Http::TimeoutError)
+      end
     end
   end
 end
