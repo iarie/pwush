@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.3.0](https://github.com/iarie/pwush/tree/HEAD)
+- Update Dry-Struct runtime dependecy to 1.0
+- Drop ruby 2.3 support
+
 ## [0.2.0](https://github.com/iarie/pwush/tree/HEAD)
 
 **Added:**
