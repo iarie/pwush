@@ -31,6 +31,10 @@ MyPW = Pwush.new(auth: 'AUTH_KEY', app: 'APP_CODE', timeout: { connect: 5, read:
 ```
 ### Push message
 ```ruby
+MyPW.create_message(content: 'Hello, there!')
+```
+### Using built-in struct
+```ruby
 first_message = Pwush::Message.new(
   content: { en: 'Hello' },
   send_date: '2018-04-06 23:00',
