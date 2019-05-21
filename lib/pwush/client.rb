@@ -1,76 +1,17 @@
 require 'http'
 
+require 'pwush/api/messages'
+require 'pwush/api/devices'
+require 'pwush/api/applications'
+
 module Pwush
   class Client
+    include Api::Messages
+    include Api::Devices
+    include Api::Applications
+
     def initialize(options)
       @config = Config.new(options)
-    end
-
-    def create_message(*messages)
-      post(:createMessage, notifications: messages.flatten)
-    end
-    alias push create_message
-
-    def message_details(message)
-      post(:getMessageDetails, message: message)
-    end
-
-    # enterprise api
-    def message_stats(message)
-      post(:getMsgStats, message: message)
-    end
-
-    # enterprise api
-    def results(request_id)
-      post(:getResults,  request_id: request_id)
-    end
-
-    # enterprise api
-    def applications
-      post(:getApplications)
-    end
-
-    # enterprise api
-    def preset(preset_code)
-      post(:getPreset, preset_code: preset_code)
-    end
-
-    ### DEVICE API
-
-    def register_device(params)
-      post(:registerDevice, params)
-    end
-
-    def unregister_device(hwid)
-      post(:unregisterDevice, hwid: hwid)
-    end
-
-    def create_test_device(params)
-      post(:createTestDevice, params)
-    end
-
-    def list_test_devices
-      post(:listTestDevices)
-    end
-
-    def set_badge(hwid, badge)
-      post(:setBadge, hwid: hwid, badge: badge)
-    end
-
-    def application_open(hwid)
-      post(:applicationOpen, hwid: hwid)
-    end
-
-    def push_stat(hwid, hash_tag = nil)
-      post(:pushStat, hwid: hwid, hash: hash_tag)
-    end
-
-    def message_delivery_event(hwid, hash_tag = nil)
-      post(:messageDeliveryEvent, hwid: hwid, hash: hash_tag)
-    end
-
-    def set_purchase(hwid, params = {})
-      post(:setPurchase, params.merge(hwid: hwid))
     end
 
     private
