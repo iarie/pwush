@@ -8,20 +8,20 @@ defaults: &default_job
   steps:
     - checkout
 
-    - type: cache-restore
-      name: Restore bundle cache
-      key: pwush-{{ checksum "Gemfile.lock" }}
+    # - type: cache-restore
+    #   name: Restore bundle cache
+    #   key: pwush-{{ checksum "Gemfile.lock" }}
 
     - run:
         name: install dependencies
         command: |
           bundle install --jobs=4 --retry=3 --path vendor/bundle
 
-    - type: cache-save
-      name: Store bundle cache
-      key: pwush-{{ checksum "Gemfile.lock" }}
-      paths:
-        - vendor/bundle
+    # - type: cache-save
+    #   name: Store bundle cache
+    #   key: pwush-{{ checksum "Gemfile.lock" }}
+    #   paths:
+    #     - vendor/bundle
 
     - run:
         name: Download cc-test-reporter
@@ -42,10 +42,6 @@ defaults: &default_job
           ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.json -r ce337e25b76b0c3048abfdb2d5aa6d3e87cc8540d90f0029ef7416683814732e
 
 jobs:
-  ruby-2.3:
-    <<: *default_job
-    docker:
-      - image: circleci/ruby:2.3-node-browsers
   ruby-2.4:
     <<: *default_job
     docker:
@@ -54,11 +50,15 @@ jobs:
     <<: *default_job
     docker:
       - image: circleci/ruby:2.5-node-browsers
+  ruby-2.6:
+    <<: *default_job
+    docker:
+      - image: circleci/ruby:2.6-node-browsers
 
 workflows:
   version: 2
   multiple-rubies:
     jobs:
-      - ruby-2.3
       - ruby-2.4
       - ruby-2.5
+      - ruby-2.6
