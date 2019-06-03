@@ -12,7 +12,7 @@ Pwush is a remote api toolkit for [Pushwoosh](https://www.pushwoosh.com/v1.0/ref
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'pwush', '~> 0.2.0'
+gem 'pwush', '~> 0.3.0'
 ```
 
 And then execute:
