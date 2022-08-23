@@ -9,7 +9,7 @@ module Pwush
 
     def self.wrap
       Deffered.new(yield).resolve
-    rescue Http::TimeoutError => e
+    rescue HTTP::TimeoutError => e
       Failure.new(e)
     end
   end

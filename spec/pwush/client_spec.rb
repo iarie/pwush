@@ -41,7 +41,7 @@ RSpec.describe Pwush::Client do
         response = client.push(message)
 
         expect(response).to be_failure
-        expect(response.failure).to be_a(Http::TimeoutError)
+        expect(response.failure).to be_a(HTTP::TimeoutError)
       end
     end
 
@@ -197,7 +197,7 @@ RSpec.describe Pwush::Client do
         response = client.push(message)
 
         expect(response).to be_failure
-        expect(response.failure).to be_a(Http::TimeoutError)
+        expect(response.failure).to be_a(HTTP::TimeoutError)
       end
     end
   end
