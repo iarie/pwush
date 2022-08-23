@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'dry/monads/result'
 
 require 'pwush/response/deffered'

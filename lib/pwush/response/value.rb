@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Pwush
   module Response
     class Value < Dry::Struct

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Pwush
   module Response
     class Deffered
@@ -10,6 +12,7 @@ module Pwush
       def resolve
         return http_request_failure if raw_result.status != 200
         return api_request_failure if value_from_api.status_code != 200
+
         api_request_succesful
       end
 
@@ -45,9 +48,9 @@ module Pwush
 
       def value_from_api
         @_value_from_api ||= Value.new(
-          status_code:    parsed_result['status_code'],
+          status_code: parsed_result['status_code'],
           status_message: parsed_result['status_message'],
-          body:           parsed_result['response']
+          body: parsed_result['response']
         )
       end
     end

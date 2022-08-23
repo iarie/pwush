@@ -1,31 +1,33 @@
+# frozen_string_literal: true
+
 RSpec.describe Pwush::Client do
   subject(:client) { described_class.new(options) }
 
   let(:host_url) { 'https://cp.pushwoosh.com/json/1.3' }
-  let(:options) {
+  let(:options) do
     {
       auth: 'authtoken1',
       app: '000000-00000'
     }
-  }
+  end
 
-  let(:headers) {
+  let(:headers) do
     {
       'Connection' => 'close',
       'Content-Type' => 'application/json; charset=UTF-8',
       'Host' => 'cp.pushwoosh.com',
       'User-Agent' => "http.rb/#{HTTP::VERSION}"
     }
-  }
+  end
 
-  let(:response_headers) {
+  let(:response_headers) do
     {
       'Content-Type' => 'application/json; charset=UTF-8'
     }
-  }
+  end
 
   describe '#push' do
-    let(:action_url) { host_url + '/createMessage' }
+    let(:action_url) { "#{host_url}/createMessage" }
 
     let(:fixture) { load_yaml('create_message') }
     let(:request_body) { fixture['in'].to_json }
@@ -46,13 +48,13 @@ RSpec.describe Pwush::Client do
     end
 
     context 'full message with all attributes available' do
-      let(:message) {
+      let(:message) do
         Pwush::Message.new(
           content: {
-              en: 'Hello',
-              es: 'Hola',
-              ru: 'Zdarova'
-            },
+            en: 'Hello',
+            es: 'Hola',
+            ru: 'Zdarova'
+          },
           send_date: '2018-04-20 13:35',
           ignore_user_timezone: true,
           timezone: 'Europe/Moscow',
@@ -63,15 +65,15 @@ RSpec.describe Pwush::Client do
           remote_page: 'http://myremoteurl.com',
           link: 'http://google.com',
           minimize_link: 0,
-          data: { a: 1, b: 2},
+          data: { a: 1, b: 2 },
           platforms: [1, 2, 3, 5],
           preset: 'Q1A2Z-6X8SW',
           send_rate: 500,
           devices: ['68753A44-4D6F-1226-9C60-0050E4C00067'],
-          users: ['uid12', 'uid13'],
+          users: %w[uid12 uid13],
           filter: 'FILTER_NAME',
           dynamic_content_placeholders: { firstname: 'John', age: 38 },
-          conditions: ['TAG_CONDITION1', 'TAG_CONDITION2'],
+          conditions: %w[TAG_CONDITION1 TAG_CONDITION2],
           ios_badges: 13,
           ios_sound: 'sound.wav',
           ios_ttl: 3600,
@@ -79,8 +81,8 @@ RSpec.describe Pwush::Client do
           ios_category_id: 38,
           ios_root_params: {
             aps: {
-              :'content-available' => 1,
-              :'mutable-content' => 1
+              'content-available': 1,
+              'mutable-content': 1
             }
           },
           apns_trim_content: 0,
@@ -116,7 +118,7 @@ RSpec.describe Pwush::Client do
           blackberry_header: 'header',
           mac_badges: 3,
           mac_sound: 'sound.caf',
-          mac_root_params: { :'content-available' => 1 },
+          mac_root_params: { 'content-available': 1 },
           mac_ttl: 2300,
           wns_content: {
             en: 'PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48YmFkZ2UgdmFsdWU9ImF2YWlsYWJsZSIvPg==',
@@ -128,7 +130,7 @@ RSpec.describe Pwush::Client do
           wns_ttl: 600,
           safari_title: 'Title',
           safari_action: 'Click here',
-          safari_url_args: ['firstArgument', 'secondArgument'],
+          safari_url_args: %w[firstArgument secondArgument],
           safari_ttl: 3600,
           chrome_title: 'Chrome!',
           chrome_icon: 'http://example.com/icon.png',
@@ -142,7 +144,7 @@ RSpec.describe Pwush::Client do
           firefox_title: 'FF Title',
           firefox_icon: 'http://example.com/fficon.png'
         )
-      }
+      end
 
       it 'returns successful result' do
         stub_request(:post, action_url)
