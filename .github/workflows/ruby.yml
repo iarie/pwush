@@ -36,10 +36,6 @@ jobs:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Run tests
       run: bundle exec rake
-    - name: Simplecov Report
-      uses: aki77/simplecov-report-action@v1
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
 
   dependency-review:
     runs-on: ubuntu-latest
@@ -49,10 +45,10 @@ jobs:
       - name: 'Dependency Review'
         uses: actions/dependency-review-action@v2
 
-  # test-coverage:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: SimpleCov+ Action
-  #       uses: joshmfrankel/simplecov-check-action@1.0.0
-  #       with:
-  #         github_token: ${{ secrets.GITHUB_TOKEN }}
+  test-coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: SimpleCov+ Action
+        uses: joshmfrankel/simplecov-check-action@1.0.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
