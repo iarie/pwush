@@ -20,14 +20,14 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.required_ruby_version = '>= 2.4.0'
+  spec.required_ruby_version = '>= 2.6.0'
 
   spec.add_dependency 'dry-monads', '~> 1.0'
   spec.add_dependency 'dry-struct', '~> 1.0'
   spec.add_dependency 'http', '~> 3.0'
   spec.add_dependency 'oj', '~> 3'
 
-  spec.add_development_dependency 'bundler', '~> 1.16'
+  spec.add_development_dependency 'bundler', '~> 2.16'
   spec.add_development_dependency 'pry-byebug', '~> 3.6'
   spec.add_development_dependency 'rake', '>= 12.3.3'
   spec.add_development_dependency 'rspec', '~> 3.0'
