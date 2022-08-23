@@ -51,7 +51,6 @@ jobs:
         uses: ruby/setup-ruby@2b019609e2b0f1ea1a2bc8ca11cb82ab46ada124
         with:
           ruby-version: '2.7'
-          bundler-cache: true
       - name: Run tests
         run: bundle exec rake
       - name: SimpleCov+ Action
