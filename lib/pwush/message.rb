@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Pwush
   class Message < Dry::Struct
     # transform_types do |type|

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'dry/monads/result'
 
 require 'pwush/response/deffered'
@@ -9,7 +11,7 @@ module Pwush
 
     def self.wrap
       Deffered.new(yield).resolve
-    rescue Http::TimeoutError => e
+    rescue HTTP::TimeoutError => e
       Failure.new(e)
     end
   end

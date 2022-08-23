@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Pwush
   class Request
     attr_reader :body
@@ -9,7 +11,7 @@ module Pwush
       @body    = build_body(@payload)
     end
 
-    def to_json
+    def to_json(*_args)
       Oj.dump(body)
     end
 
