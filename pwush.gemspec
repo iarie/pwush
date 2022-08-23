@@ -22,16 +22,15 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 2.6.0'
 
-  spec.add_dependency 'dry-monads', '~> 1.0'
-  spec.add_dependency 'dry-struct', '~> 1.0'
-  spec.add_dependency 'http', '~> 3.0'
-  spec.add_dependency 'oj', '~> 3'
+  spec.add_dependency 'dry-monads', '~> 1.4'
+  spec.add_dependency 'dry-struct', '~> 1.4'
+  spec.add_dependency 'http', '~> 5.1'
+  spec.add_dependency 'oj', '~> 3.13'
 
-  spec.add_development_dependency 'bundler', '~> 2.16'
-  spec.add_development_dependency 'pry-byebug', '~> 3.6'
-  spec.add_development_dependency 'rake', '>= 12.3.3'
-  spec.add_development_dependency 'rspec', '~> 3.0'
-  spec.add_development_dependency 'rspec_junit_formatter', '~> 0.3'
-  spec.add_development_dependency 'simplecov', '~> 0.16'
-  spec.add_development_dependency 'webmock', '~> 3.0'
+  spec.add_development_dependency 'bundler', '~> 2.2'
+  spec.add_development_dependency 'pry-byebug', '~> 3.10'
+  spec.add_development_dependency 'rake', '>= 13.0.6'
+  spec.add_development_dependency 'rspec', '~> 3.11'
+  spec.add_development_dependency 'simplecov', '~> 0.21'
+  spec.add_development_dependency 'webmock', '~> 3.18'
 end
