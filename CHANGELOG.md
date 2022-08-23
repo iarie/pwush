@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.4.0](https://github.com/iarie/pwush/tree/HEAD)
+- Update Dry-Monads runtime dependecy to 1.4
+- Update Dry-Struct runtime dependecy to 1.4
+- Update the HTTP gem runtime dependecy to 5.1
+- Drop ruby 2.5 support
+
 ## [0.3.0](https://github.com/iarie/pwush/tree/HEAD)
 - Update Dry-Struct runtime dependecy to 1.0
 - Drop ruby 2.3 support

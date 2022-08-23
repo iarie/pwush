@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'pwush/version'
@@ -20,18 +22,17 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.required_ruby_version = '>= 2.4.0'
+  spec.required_ruby_version = '>= 2.6.0'
 
-  spec.add_dependency 'dry-monads', '~> 1.0'
-  spec.add_dependency 'dry-struct', '~> 1.0'
-  spec.add_dependency 'http', '~> 3.0'
-  spec.add_dependency 'oj', '~> 3'
+  spec.add_dependency 'dry-monads', '~> 1.4'
+  spec.add_dependency 'dry-struct', '~> 1.4'
+  spec.add_dependency 'http', '~> 5.1'
+  spec.add_dependency 'oj', '~> 3.13'
 
-  spec.add_development_dependency 'bundler', '~> 1.16'
-  spec.add_development_dependency 'pry-byebug', '~> 3.6'
-  spec.add_development_dependency 'rake', '>= 12.3.3'
-  spec.add_development_dependency 'rspec', '~> 3.0'
-  spec.add_development_dependency 'rspec_junit_formatter', '~> 0.3'
-  spec.add_development_dependency 'simplecov', '~> 0.16'
-  spec.add_development_dependency 'webmock', '~> 3.0'
+  spec.add_development_dependency 'bundler', '~> 2.2'
+  spec.add_development_dependency 'pry-byebug', '~> 3.9'
+  spec.add_development_dependency 'rake', '>= 13.0.6'
+  spec.add_development_dependency 'rspec', '~> 3.11'
+  spec.add_development_dependency 'simplecov', '~> 0.21'
+  spec.add_development_dependency 'webmock', '~> 3.18'
 end

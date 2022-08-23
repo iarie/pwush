@@ -1,4 +1,3 @@
-[![CircleCI](https://circleci.com/gh/iarie/pwush/tree/master.svg?style=shield)](https://circleci.com/gh/iarie/pwush/tree/master)
 [![Gem Version](https://badge.fury.io/rb/pwush.svg)](https://badge.fury.io/rb/pwush)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d1887381dee84e26e860/maintainability)](https://codeclimate.com/github/iarie/pwush/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/d1887381dee84e26e860/test_coverage)](https://codeclimate.com/github/iarie/pwush/test_coverage)

@@ -9,12 +9,13 @@ name: Ruby
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "edge" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "edge" ]
 
 permissions:
   contents: read
+  checks: write
 
 jobs:
   test:
@@ -22,17 +23,27 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby-version: ['2.6', '2.7', '3.0']
+        ruby-version: ['2.6', '2.7', '3.0', '3.1']
 
     steps:
     - uses: actions/checkout@v3
     - name: Set up Ruby
-    # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
-    # change this to (see https://github.com/ruby/setup-ruby#versioning):
-    # uses: ruby/setup-ruby@v1
       uses: ruby/setup-ruby@2b019609e2b0f1ea1a2bc8ca11cb82ab46ada124
       with:
         ruby-version: ${{ matrix.ruby-version }}
-        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+        bundler-cache: true
     - name: Run tests
       run: bundle exec rake
+    - name: SimpleCov+ Action
+      uses: joshmfrankel/simplecov-check-action@1.0.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v3
+      - name: 'Dependency Review'
+        uses: actions/dependency-review-action@v2

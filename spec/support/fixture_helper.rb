@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FixtureHelper
   def load_yaml(request)
     YAML.safe_load load_file(request)
