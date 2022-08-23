@@ -47,7 +47,8 @@ jobs:
 
   test-coverage:
     runs-on: ubuntu-latest
-    permissions: read-all
+    permissions:
+      checks: write
     steps:
       - name: SimpleCov+ Action
         uses: joshmfrankel/simplecov-check-action@1.0.0
