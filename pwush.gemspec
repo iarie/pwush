@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'oj', '~> 3.13'
 
   spec.add_development_dependency 'bundler', '~> 2.2'
-  spec.add_development_dependency 'pry-byebug', '~> 3.10'
+  spec.add_development_dependency 'pry-byebug', '~> 3.9'
   spec.add_development_dependency 'rake', '>= 13.0.6'
   spec.add_development_dependency 'rspec', '~> 3.11'
   spec.add_development_dependency 'simplecov', '~> 0.21'
